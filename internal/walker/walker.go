@@ -14,7 +14,7 @@ type Walker struct {
 
 type FileFilter func(info types.FileInfo, osInfo os.FileInfo) bool
 
-func Mew(path string) (*Walker, error) {
+func New(path string) (*Walker, error) {
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		return nil, fmt.Errorf("directory does not exist: %s", path)
 	}
