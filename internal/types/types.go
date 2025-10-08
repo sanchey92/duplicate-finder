@@ -5,3 +5,9 @@ type FileInfo struct {
 	Size int64
 	Hash string
 }
+
+type HashResult struct {
+	File FileInfo
+	Hash string
+	Err  error
+}
