@@ -79,17 +79,17 @@ func (f *Finder) groupByHash(files []types.FileInfo) types.DuplicateGroup {
 
 func (f *Finder) filterDuplicates(hashGroups types.DuplicateGroup) types.DuplicateGroup {
 	count := 0
-	for _, g := range hashGroups {
-		if len(g) > 1 {
+	for _, group := range hashGroups {
+		if len(group) > 1 {
 			count++
 		}
 	}
 
 	duplicates := make(types.DuplicateGroup, count)
 
-	for h, g := range hashGroups {
-		if len(g) > 1 {
-			duplicates[h] = g
+	for hash, group := range hashGroups {
+		if len(group) > 1 {
+			duplicates[hash] = group
 		}
 	}
 	return duplicates
