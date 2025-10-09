@@ -11,3 +11,12 @@ type HashResult struct {
 	Hash string
 	Err  error
 }
+
+type ScanStats struct {
+	TotalFiles       int
+	ProcessedFiles   int
+	DuplicateGroup   int
+	TotalWastedSpace int64
+}
+
+type DuplicateGroup map[string][]FileInfo
